@@ -1,13 +1,35 @@
 const crypto = require("crypto");
-const { Buffer } = require("buffer");
-const { ENCRYPTION_KEY,ENCRYPTION_IV } = JSON.parse(process.env.ENCRYPTION) //getting ENCRYPTION_KEY and ENCRYPTION_IV which is configured in config/config.json.
+const { ENCRYPTION_KEY, ENCRYPTION_IV } = JSON.parse(process.env.ENCRYPTION);
 
-const algorithm = "aes-256-cbc";
-const key = ENCRYPTION_KEY; //KEY used for decryption and encryption
-const secretiv = ENCRYPTION_IV; //IV used for decryption and encryption
+let algorithm = "aes-256-cbc";
+let key = ENCRYPTION_KEY; //KEY used for encryption and decryption. Defined in config.json
+let secretiv = ENCRYPTION_IV; //IV used for encryption and decryption. Defined in config.json
 
-class decryptLib {
+class encryptionLib {
+  encryptText(text) {
+    if(typeof text === 'object'){
+      text = JSON.stringify(text);
+    }
+    let keystring = crypto
+      .createHash("sha256")
+      .update(String(key))
+      .digest("hex")
+      .substr(0, 32);
+
+    let ivv = crypto
+      .createHash("sha256")
+      .update(String(secretiv))
+      .digest("hex")
+      .substr(0, 16);
+
+    const cipher = crypto.createCipheriv(algorithm, keystring, ivv);
+    const encrypted =
+      cipher.update(text, "utf8", "base64") + cipher.final("base64");
+    return encrypted;
+  }
+
   decryptText(encrypted) {
+    encrypted = encrypted.toString().replace(" ", "+");
     try {
       let buff = Buffer.from(encrypted, "base64");
       let text = buff.toString("ascii");
@@ -61,4 +83,4 @@ class decryptLib {
   }
 }
 
-module.exports = decryptLib;
+module.exports = encryptionLib;
