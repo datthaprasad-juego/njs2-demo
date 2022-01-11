@@ -34,7 +34,6 @@ class ExampleApiGatewayAction extends baseAction {
             "method": "GET"
           }
         (NOTE: in 'action' target API is defined and 'request_id' for identity purpose used also 'method' type is required)    
-    10. For sending above message you will get reponse as All connected socket id's in array. (i.e SOCKET_ID_ARRAY).
     */
 
     this.setResponse("SUCCESS");

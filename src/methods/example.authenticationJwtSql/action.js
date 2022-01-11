@@ -4,6 +4,7 @@ class ExampleAuthenticationJwtSqlAction extends baseAction {
     AUTHENTICATION USING JWT_SQL EXAMPLE
 
     Descripton:
+    -This is to demonstrate how to store JWT Token in database for security purpose.
     -In Following example JWT_SQL decrypts the access_token and get user_id which is specified in JWT_ID_KEY (in config/config.json).
     -Then search for matching user_id and access_token in sql table which is specified in DB_TABLE_NAME.
     -Then it returns entire user details in userObj.

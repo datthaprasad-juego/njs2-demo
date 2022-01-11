@@ -5,7 +5,7 @@ class ExampleAuthBasicJwtCreateAction extends baseAction {
     AUTHENTICATION TOKEN GENERATION USING JWT EXAMPLE
 
     Description:
-    -This example will generate access_token for your user_id argument and will send in response.
+    -This example will generate access_token for given user_id argument and will send in response.
 
     Steps:
     1. Install jsonwebtoken package: npm install jsonwebtoken --save

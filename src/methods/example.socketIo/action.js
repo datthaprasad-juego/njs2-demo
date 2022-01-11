@@ -8,8 +8,8 @@ class ExampleSocketIoAction extends baseAction {
         "SOCKET_SYSTEM_TYPE": "SOCKET_IO"
     2. Please find index1.html and index2.html in the Assets/Downloads folder. Open both these files in your browser.
     3. Update the below content in global/constants.js.
-          constant.CONNECTION_HANDLER_METHOD = "example/socketIOConnect";  //this will trigger while conection is established
-          constant.DISCONNECTION_HANDLER_METHOD = "example/socketIODisconnect";  //this will trigger while conection is disconnected
+          constant.CONNECTION_HANDLER_METHOD = "example/socketConnect";  //this will trigger while conection is established
+          constant.DISCONNECTION_HANDLER_METHOD = "example/socketDisconnect";  //this will trigger while conection is disconnected
         (NOTE: Please read  example/socketConnect.js and example/socketDisconnect.js files for more details)
     4. In global/constants.js, define the following:
           constant.SOCKET_ID_ARRAY = [];
@@ -27,7 +27,6 @@ class ExampleSocketIoAction extends baseAction {
           request_id : is just to maintain the identity for the request.
           method : specifies the http method, "GET" or "POST".
         (NOTE: Please read the html files for more understanding)
-    10. So while pressing the button, this example will execute and return SOCKET_ID_ARRAY in response.
 
 
     */
