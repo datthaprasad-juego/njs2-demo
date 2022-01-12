@@ -1,4 +1,4 @@
-class ExampleAuthenticationJwtSqlAction extends baseAction {
+class ExampleAuthSqlJwtAction extends baseAction {
   async executeMethod() {
     /*
     AUTHENTICATION USING JWT_SQL EXAMPLE
@@ -44,4 +44,4 @@ class ExampleAuthenticationJwtSqlAction extends baseAction {
     return { userObj };
   }
 }
-module.exports = ExampleAuthenticationJwtSqlAction;
+module.exports = ExampleAuthSqlJwtAction;
